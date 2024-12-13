@@ -10,7 +10,7 @@ Courseplay.xmlKey = Courseplay.baseXmlKey.."."
 
 function Courseplay:init()
 	---TODO_25
-	-- g_gui:loadProfiles( Utils.getFilename("config/gui/GUIProfiles.xml", Courseplay.BASE_DIRECTORY) )
+	g_gui:loadProfiles( Utils.getFilename("config/gui/GUIProfiles.xml", Courseplay.BASE_DIRECTORY) )
 
 	--- Base cp folder
 	self.baseDir = getUserProfileAppPath() .. "modSettings/" .. Courseplay.MOD_NAME ..  "/"
