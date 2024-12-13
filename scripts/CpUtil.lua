@@ -473,7 +473,58 @@ function CpUtil.getAllRootVegetables()
     return rootVegetables
 end
 
----@return Vehicle the currently selected/controlled vehicle, formerly known as g_currentMission.controlledVehicle
+-- Flags to prevent spam messages
+local hasLoggedMissionNil = false
+local hasLoggedPlayerSystemNil = false
+local hasLoggedLocalPlayerNil = false
+local hasLoggedNoVehicle = false
+
+---@return Vehicle|nil The currently selected/controlled vehicle, or nil if unavailable
 function CpUtil.getCurrentVehicle()
-	return g_currentMission.playerSystem:getLocalPlayer():getCurrentVehicle()
+    -- Check if g_currentMission is valid
+    if g_currentMission == nil then
+        if not hasLoggedMissionNil then
+            print("Error: g_currentMission is nil")
+            hasLoggedMissionNil = true
+        end
+        return nil
+    end
+    
+    -- Check if playerSystem exists
+    if g_currentMission.playerSystem == nil then
+        if not hasLoggedPlayerSystemNil then
+            print("Error: g_currentMission.playerSystem is nil")
+            hasLoggedPlayerSystemNil = true
+        end
+        return nil
+    end
+
+    -- Check if local player exists
+    local localPlayer = g_currentMission.playerSystem:getLocalPlayer()
+    if localPlayer == nil then
+        if not hasLoggedLocalPlayerNil then
+            print("Error: Local player is nil")
+            hasLoggedLocalPlayerNil = true
+        end
+        return nil
+    end
+
+    -- Check if getCurrentVehicle is valid
+    local currentVehicle = localPlayer:getCurrentVehicle()
+    if currentVehicle == nil then
+        if not hasLoggedNoVehicle then
+            print("Debug: Player is not currently in a vehicle")
+            hasLoggedNoVehicle = true
+        end
+        return nil
+    end
+
+    -- Reset flags if everything works correctly
+    hasLoggedMissionNil = false
+    hasLoggedPlayerSystemNil = false
+    hasLoggedLocalPlayerNil = false
+    hasLoggedNoVehicle = false
+
+    -- Return the current vehicle
+    return currentVehicle
 end
