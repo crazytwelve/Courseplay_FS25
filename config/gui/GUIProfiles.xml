@@ -67,16 +67,16 @@
 
     <Traits>
         <Trait name="debugging">
-            <Value name="debugEnabled" value="true" />
+            <debugEnabled>true</debugEnabled>
         </Trait>
 		<Trait name="anchorTopLeft">
-            <Value name="anchors" value="0 0 1 1" />
+            <anchors>0 0 1 1</anchors>
         </Trait>
 		<Trait name="anchorTopCenter">
-            <Value name="anchors" value="0.5 0.5 1 1" />
+            <anchors>0.5 0.5 1 1</anchors>
         </Trait>
 		<Trait name="anchorMiddleCenter">
-			<Value name="anchors" value="0.5 0.5 0.5 0.5" />
+			<anchors>0.5 0.5 0.5 0.5</anchors>
 			<!-- 
 				
             <Value name="screenAlign" value="middleCenter" />
@@ -86,40 +86,40 @@
     </Traits>
 
 	<Profile name="cpCourseGeneratorBackground" extends="emptyFullPanel" with="anchorTopLeft">
-		<Value name="size" value="1220px 840px"/>
-		<Value name="imageColor" value="0.0111 0.0276 0.0377 0.95"/>
+		<size>1220px 840px</size>
+		<imageColor>0.0111 0.0276 0.0377 0.95</imageColor>
     </Profile>
 	
 	<Profile name="cpIngameMenuSettingsBox" extends="ingameMenuSettingsBox">
-		<Value name="size" value="1200px 756px"/>
+		<size>1200px 756px</size>
     </Profile>
 
 	<Profile name="cpIngameMenuSettingsLayout" extends="ingameMenuSettingsLayout">
-		<Value name="size" value="1200px 756px"/>
+		<size>1200px 756px</size>
     </Profile>
 	
 	<Profile name="cpMultiTextOptionSettingsTooltip" extends="multiTextOptionSettingsTooltip">
-		<Value name="textMaxWidth" value="332px" />
+		<textMaxWidth>332px</textMaxWidth>
     </Profile>
 
 	<Profile name="cpControllerGuiLayout" extends="ingameMenuAICreateLayout">
-        <Value name="position" value="-40px 0px" />
+        <position>-40px 0px</position>
     </Profile>
 
 	<Profile name="cpDrawingCustomFieldHeader" extends="ingameMenuFrameHeaderText" with="anchorTopCenter">
-        <Value name="position" value="0px -40px" />
+        <position>0px -40px</position>
     </Profile>
 	<Profile name="cpDrawingCustomFieldSubHeader" extends="ingameMenuFrameHeaderText" with="anchorTopCenter">
-        <Value name="position" value="0px -70px" />
+        <position>0px -70px</position>
     </Profile>
 
 	<Profile name="cpMultiTextOptionText" extends="multiTextOptionText">
-		<Value name="imageColor" value="0 0 0 0"/>
+		<imageColor>0 0 0 0</imageColor>
     </Profile>
 
 	<Profile name="cpMultiTextOptionSettingsText" extends="multiTextOptionSettingsText">
-		<Value name="size" value="210px 48px"/>
-		<Value name="imageColor" value="0 0 0 0"/>
+		<size>210px 48px</size>
+		<imageColor>0 0 0 0</imageColor>
 	</Profile>
 
 
