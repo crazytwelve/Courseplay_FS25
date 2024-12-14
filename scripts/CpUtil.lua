@@ -475,5 +475,12 @@ end
 
 ---@return Vehicle the currently selected/controlled vehicle, formerly known as g_currentMission.controlledVehicle
 function CpUtil.getCurrentVehicle()
-	return g_currentMission.playerSystem:getLocalPlayer():getCurrentVehicle()
+    local player = g_currentMission.playerSystem:getLocalPlayer()
+    if player then
+        local vehicle = player:getCurrentVehicle()
+        if vehicle then
+            return vehicle
+        end
+    end
+    return nil
 end
